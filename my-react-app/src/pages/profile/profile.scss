@@ -1,0 +1,479 @@
+.insta-profile-container {
+  max-width: 935px;
+  margin: 0 auto;
+  padding: 20px 16px;
+  font-family: "Inter", sans-serif;
+  color: #000;
+
+  .profile-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+
+    .username {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .menu-container {
+      position: relative;
+
+      .menu-button {
+        background: none;
+        border: none;
+        font-size: 25px;
+        cursor: pointer;
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 30px;
+        right: 0;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        min-width: 150px;
+        z-index: 100;
+
+        button {
+          width: 100%;
+          background: none;
+          border: none;
+          padding: 10px 12px;
+          text-align: left;
+          font-size: 14px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          cursor: pointer;
+          transition: background 0.2s;
+
+          &:hover {
+            background: #f7f7f7;
+          }
+        }
+
+        .logout-btn:hover {
+          background-color: red;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-bottom: 12px;
+
+    .profile-avatar-wrapper {
+      position: relative;
+      width: 86px;
+      height: 85px;
+
+      .profile-avatar {
+        width: 100%;
+        height: 100%;
+        border-radius: 15%;
+        object-fit: cover;
+        border: 1px solid #ddd;
+      }
+
+      .edit-icon {
+        position: absolute;
+        bottom: 4px;
+        right: 4px;
+        background: white;
+        border-radius: 50%;
+        border: 1px solid #ccc;
+        padding: 2px;
+      }
+    }
+
+    .profile-stats {
+      display: flex;
+      flex: 1;
+      justify-content: space-around;
+
+      .stat-item {
+        text-align: center;
+
+        strong {
+          font-weight: 600;
+          font-size: 16px;
+          display: block;
+        }
+
+        span {
+          color: #555;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .bio-section {
+    margin: 8px 0 16px;
+
+    .bio-text {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+
+  .profile-buttons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+
+    button {
+      flex: 1;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #fafafa;
+      font-size: 14px;
+      padding: 6px 0;
+      cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+  }
+
+  .highlights {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto;
+
+    .highlight {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 2px solid #ddd;
+      flex-shrink: 0;
+      position: relative;
+
+      &.add-highlight {
+        cursor: pointer;
+        border: 2px dashed #888;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #eaeaea;
+        }
+      }
+
+      .highlight-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .highlight-menu-wrapper {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+
+        .highlight-menu-button {
+          background: white;
+          border: 1px solid #ccc;
+          border-radius: 50%;
+          width: 26px;
+          height: 26px;
+          cursor: pointer;
+        }
+
+        .highlight-menu-dropdown {
+          position: absolute;
+          top: 34px;
+          right: 0;
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+          z-index: 200;
+          padding: 6px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+
+          button {
+            background: none;
+            border: none;
+            padding: 8px 10px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:hover {
+              background: #f5f5f5;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .video-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+
+    .video-modal-content {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    .video-player-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: fit-content;
+      margin-inline: auto;
+
+      .video-player {
+        width: 100%;
+        max-width: 355px;
+        border-radius: 10px;
+        background: black;
+      }
+
+      /* bottom overlay inside the video area */
+      .video-bottom-overlay {
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        pointer-events: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background: black;
+        width: 100%;
+        padding: 10px;
+      }
+
+      .video-bottom-overlay .overlay-left,
+      .video-bottom-overlay .overlay-right {
+        pointer-events: auto;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .views-count {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .video-overlay-menu-btn {
+        background: rgba(0, 0, 0, 0.5);
+        border: none;
+        color: #fff;
+        padding: 6px 10px;
+        border-radius: 18px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 34px;
+      right: 213px;
+      background: transparent;
+      color: white;
+      border: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    .video-modal-topbar {
+      position: absolute;
+      top: 18px;
+      right: 60px;
+      z-index: 1100;
+
+      .video-modal-menu-btn {
+        background: rgba(0, 0, 0, 0.35);
+        border: none;
+        color: white;
+        font-size: 20px;
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+      }
+    }
+
+    .video-modal-menu {
+      position: fixed;
+      left: 0;
+      right: -141px;
+    bottom: 68px;
+      z-index: 1200;
+      display: flex;
+      justify-content: center;
+      padding: 12px;
+
+      & > div {
+        width: 100%;
+        max-width: 204px;
+        background: #0b0b0b;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+        box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.5);
+        padding: 8px 0;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      button {
+        background: transparent;
+        border: none;
+        color: white;
+        padding: 14px 20px;
+        text-align: left;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button + button {
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .cancel-area {
+        margin-top: 8px;
+        width: 100%;
+        max-width: 540px;
+        display: flex;
+        justify-content: center;
+
+        button {
+          background: #151515;
+          border-radius: 10px;
+          padding: 12px 20px;
+          color: #fff;
+          border: none;
+          font-weight: 600;
+        }
+      }
+    }
+
+    .video-controls {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 12px;
+
+      button {
+        border: none;
+        background: #fff;
+        padding: 8px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+
+        &:disabled {
+          opacity: 0.45;
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  .tabs {
+    .post-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+
+      .post-item {
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+
+        .post-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  .archived-highlights {
+    margin-top: 18px;
+
+    h3 {
+      margin-bottom: 8px;
+    }
+
+    .archived-list {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+
+      .archived-item {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid #ddd;
+
+        .highlight-video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .profile-header {
+      align-items: center;
+      text-align: center;
+      gap: 7px;
+
+      .profile-stats {
+        width: 100%;
+        justify-content: space-around;
+      }
+    }
+
+    .profile-buttons button {
+      width: 100%;
+    }
+    .video-modal .video-player {
+      max-width: 92%;
+    }
+  }
+}

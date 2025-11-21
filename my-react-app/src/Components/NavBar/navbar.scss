@@ -1,0 +1,40 @@
+$insta-blue: #0095f6;
+
+.bottom-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff;
+    border-top: 1px solid #ddd;
+    z-index: 999;
+
+    svg {
+        font-size: 30px;
+    }
+
+    &__menu {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 12px 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__item {
+        font-size: 24px;
+        color: #262626;
+        cursor: pointer;
+        transition: color 0.2s ease;
+
+        &:hover {
+            color: $insta-blue;
+        }
+    }
+
+    @media (max-width:768px) {
+        svg {
+            font-size: 25px;
+        }
+    }
+}

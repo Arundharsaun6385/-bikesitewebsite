@@ -1,0 +1,128 @@
+.otp-verify {
+  width: 90%;
+  max-width: 400px;
+  margin: 170px auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+  font-family: sans-serif;
+  text-align: center;
+  background-image: url("../../assets/images/download.jfif");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: white;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    padding: 10px;
+  }
+  
+  p {
+    font-size: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 1);
+    color: white;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: fit-content;
+    padding: 8px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+  }
+
+  .otp-inputs {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    input {
+      width: 100%;
+      color: black;
+      max-width: 60px;
+      height: 60px;
+      font-size: 24px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border-color 0.3s ease;
+
+      &:focus {
+        border-color: #007bff;
+      }
+    }
+  }
+
+  button {
+    padding: 12px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  .class_p {
+    display: flex;
+    justify-content: end;
+
+    p {
+      text-align: end;
+      color: green;
+      background: white;
+      padding: 7px;
+
+      &:hover {
+        text-decoration: underline;
+        color: red;
+        cursor: pointer;
+      }
+    }
+  }
+
+  // Responsive Styles
+  @media (max-width: 480px) {
+    padding: 20px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .otp-inputs input {
+      max-width: 50px;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    button {
+      font-size: 14px;
+      padding: 10px 16px;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .otp-inputs input {
+      max-width: 70px;
+      height: 70px;
+      font-size: 28px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .otp-inputs input {
+      max-width: 80px;
+      height: 80px;
+    }
+  }
+}
